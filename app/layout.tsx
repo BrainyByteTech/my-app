@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "./components/header";
+import Header from "./header";
+import Sidebar from "./sidebar";
 
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+  weight: ['400', '700'], // Specify the desired font weights
+  subsets: ['latin'], // Specify the desired subsets
+});
 
 export const metadata: Metadata = {
   title: "Best App",
@@ -18,8 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
       <Header/>
+      <Sidebar/>
         {children}</body>
     </html>
   );
